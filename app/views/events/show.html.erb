@@ -1,0 +1,58 @@
+<h3>イベント詳細</h3>
+<table>
+  <tr>
+    <td>イベント名：<%= @event.event_name %></td>
+  </tr>
+  <tr>
+    <td>イベント内容：<%= @event.event_content %></td>
+  </tr>
+  <tr>
+    <td>開催日時：<%= l @event.event_date %></td>
+  </tr>
+  <tr>
+    <td>支部名：<%= @event.branch %></td>
+  </tr>
+  <tr>
+    <td>主催者：<%= @event.organizer %></td>
+  </tr>
+  <tr>
+    <td>幹事：<%= @event.secretary %></td>
+  </tr>
+  <tr>
+    <td>事務局長：<%= @event.executive_director %></td>
+  </tr>
+  <tr>
+    <td>最寄駅<%= @event.nearest_station %></td>
+  </tr>
+  <tr>
+    <td>場所：<%= @event.place %></td>
+  </tr>
+  <tr>
+    <td>郵便番号：<%= @event.postcode %></td>
+  </tr>
+  <tr>
+    <td>都道府県：<%= @event.prefecture_code %></td>
+  </tr>
+  <tr>
+    <td>市区町村：<%= @event.address_city %></td>
+  </tr>
+  <tr>
+    <td>番地：<%= @event.address_street %></td>
+  </tr>
+  <tr>
+    <td>ビル名・マンション名：<%= @event.address_building %></td>
+  </tr>
+  <tr>
+  <% if @event.is_active == true %>
+    <td>募集中</td>
+  <% else %>
+    <td>募集終了</td>
+  <% end %>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to "イベント一覧へ", events_path %><br>
+      <%= link_to "イベント編集", edit_event_path(@event)%>
+    </td>
+  </tr>
+</table>

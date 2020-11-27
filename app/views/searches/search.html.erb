@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <h4>検索結果：全<%= @events.count %>件</h4>
+  <table class="mt-5">
+    <thead>
+      <th></th>
+    </thead>
+    <% @events.each do |e| %>
+      <tbody>
+        <tr>
+          <td><%= e.branch %></td>
+          <td><%= e.event_name %></td>
+        </tr>
+      </tbody>
+    <% end %>
+  </table>
+</div>

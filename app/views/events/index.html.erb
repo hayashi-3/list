@@ -1,0 +1,43 @@
+<h3>投稿イベント一覧</h3>
+<div class="seach">支部ごとにイベントを絞り込み</div>
+  <%= form_with(scope: :search, url: search_path, method: :get, local: true) do |f| %>
+
+    <%= f.label :date_and_time, "イベント開催日時" %>
+    <%= f.date_field :date_and_time_from %> ~
+    <%= f.date_field :date_and_time_to %>
+
+    <%= f.label :branch, "支部名" %>
+    <%= f.text_field :branch %>
+
+    <%= submit_tag "検索" %>
+    <% end %>
+<table>
+	<thead>
+	</thead>
+	<tbody>
+		<% @event.each do |e| %>
+			<tr>
+			  <td>開催日時：<%= l e.event_date %></td>
+				<td><%= e.place %></td>
+        <td>【<%= e.branch %>支部】</td>
+				<td>[主]<%= e.organizer %></td>
+				<td>[幹]<%= e.secretary %></td>
+				<td>[事]<%= e.executive_director %></td>
+				<td>[最寄駅]<%= e.nearest_station %></td>
+				<td>[会場]<%= e.postcode %></td>
+				<td><%= e.prefecture_code %></td>
+				<td><%= e.address_city %></td>
+        <td><%= e.address_street %></td>
+				<td><%= e.address_building %></td>
+				<td>
+					 <% if !(e.is_active == false) && e.event_date >= DateTime.now %>
+						<span class="text-active">募集中</span>	
+					<% else %>
+						<span class="text-invalid">募集締め切り</span>
+					<% end %>
+			　</td>
+				<td><%= link_to "詳細", event_path(e), class: "btn btn-primary" %></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

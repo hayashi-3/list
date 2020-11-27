@@ -1,0 +1,83 @@
+<h3>イベント編集</h3>
+<%= form_with model: @event, url: event_path(@event.id), local: true do |f| %>
+	<div class="flex">
+		<table>
+			<thead>
+				<tr>
+					<th></th>	
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= f.label :event_name, "イベント名" %></td>
+					<td><%= f.text_field :event_name %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :event_content, "内容" %></td>
+					<td><%= f.text_area :event_content, rows: 3 %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :event_date, "開催日時" %></td>
+					<td><%= f.datetime_select :event_date, {} %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :branch, "支店名" %></td>
+					<td><%= f.text_field :branch %></td>
+				</tr>
+        <tr>
+					<td><%= f.label :organizer, "主催者" %></td>
+					<td><%= f.text_field :organizer %></td>
+				</tr>
+        <tr>
+					<td><%= f.label :secretary, "幹事" %></td>
+					<td><%= f.text_field :secretary %></td>
+				</tr>
+        <tr>
+					<td><%= f.label :executive_director, "事務局長" %></td>
+					<td><%= f.text_field :executive_director %></td>
+				</tr>
+        <tr>
+					<td><%= f.label :nearest_station, "最寄駅" %></td>
+					<td><%= f.text_field :nearest_station %></td>
+				</tr>
+        <tr>
+					<td><%= f.label :place, "都道府県" %></td>
+					<td><%= f.text_field :place, rows: 3 %></td>
+				</tr>
+        <tr>
+          <td><%= f.label :postcode, "[会場]郵便番号" %></td>
+          <td><%= f.text_field :postcode, id: "event_postcode" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :prefecture_code, "都道府県" %></td>
+          <td><%= f.text_field :prefecture_code, id: "event_prefecture_code" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :address_city, "市町村" %></td>
+          <td><%= f.text_field :address_city, id: "event_address_city" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :address_street, "番地" %></td>
+          <td><%= f.text_field :address_street, id: "address_street" %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :address_building, "建物(ビル名)" %></td>
+          <td><%= f.text_field :address_building, id: "address_building" %></td>
+				</tr>
+        <tr>
+					<td><%= f.label :is_active, "募集状況" %></td>
+					<td class="select_field">
+						<%= f.radio_button :is_active, true %>
+						<%= f.label :is_active, "募集中", class: "text-active" %>
+						<%= f.radio_button :is_active, false %>
+						<%= f.label :is_active, "募集終了", class: "text-invalid" %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="flex align-center pl5">
+			<%= f.submit class: "btn btn-primary" %>
+		</div>
+	</div>
+<% end %>
