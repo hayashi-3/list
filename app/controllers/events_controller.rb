@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @event = Event.all
+    @events = Event.where("events.event_date >= ?", DateTime.now - 5)
   end
 
   def show
@@ -46,6 +46,9 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @event.destroy
+    @user = current_user
+    redirect_to events_path
   end
 
   private

@@ -15,7 +15,7 @@
 	<thead>
 	</thead>
 	<tbody>
-		<% @event.each do |e| %>
+		<% @events.each do |e| %>
 			<tr>
 			  <td>開催日時：<%= l e.event_date %></td>
 				<td><%= e.place %></td>
@@ -30,7 +30,7 @@
         <td><%= e.address_street %></td>
 				<td><%= e.address_building %></td>
 				<td>
-					 <% if !(e.is_active == false) && e.event_date >= DateTime.now %>
+					<% if e.is_active == true %>
 						<span class="text-active">募集中</span>	
 					<% else %>
 						<span class="text-invalid">募集締め切り</span>

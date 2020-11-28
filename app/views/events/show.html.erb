@@ -50,9 +50,14 @@
   <% end %>
   </tr>
   <tr>
-    <td>
-      <%= link_to "イベント一覧へ", events_path %><br>
-      <%= link_to "イベント編集", edit_event_path(@event)%>
-    </td>
+    <td><%= link_to "イベント一覧へ", events_path %></td>
   </tr>
+  <% if @event.user.id == current_user.id %>
+    <tr>
+      <td>
+        <%= link_to "イベント編集", edit_event_path(@event)%><br>
+        <%= link_to "イベント削除",event_path(@event), method: :delete, data: {confirm: "削除しますか？"} %>
+      </td>
+    </tr>
+  <% end %>
 </table>
