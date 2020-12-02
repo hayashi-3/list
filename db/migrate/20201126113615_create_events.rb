@@ -12,11 +12,12 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.string :nearest_station
       t.string :place
       t.integer :postcode
-      t.integer :prefecture_code
+      t.string :prefecture_code
       t.string :address_city
       t.string :address_street
       t.string :address_building
       t.boolean :is_active, null: false, default: true
+      t.float :rate, null: false, default: 0
       t.timestamps
     end
   end

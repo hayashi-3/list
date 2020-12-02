@@ -24,11 +24,12 @@ ActiveRecord::Schema.define(version: 2020_11_26_113615) do
     t.string "nearest_station"
     t.string "place"
     t.integer "postcode"
-    t.integer "prefecture_code"
+    t.string "prefecture_code"
     t.string "address_city"
     t.string "address_street"
     t.string "address_building"
     t.boolean "is_active", default: true, null: false
+    t.float "rate", default: 0.0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

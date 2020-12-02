@@ -14,6 +14,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery.jpostal.js
+//= jquery.raty.js
 //= require popper
 //= require bootstrap
 //= require_tree .

@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.where("events.event_date >= ?", DateTime.now - 5)
+    @events = Event.where("events.event_date >= ?", DateTime.current)
   end
 
   def show
